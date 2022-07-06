@@ -1,4 +1,4 @@
-Integers in python are represented in **bit arrays** AKA **words**. The term **word size** refers to the length bit array. For instance, a bit array that is 8 bits long has a word size of 8. Python uses dynamically sized words to represent number, bit arrays vary in length with the number that is being represnted. Internally, python represents negative integers through an operation called **2s complement**, which is a map that takes the binary representation of the positive integer and generates the corresponding binary representation of the negative integer.
+Integers in python are represented in **bit arrays**. Python uses variable length bit arrays to represent numbers. Internally, python represents negative integers through an operation called **2s complement**, which is a map that takes the binary representation of the positive integer and generates the corresponding binary representation of the negative integer.
 
 Binary is a base 2 counting system, with each bit representing a numerical value of 2^n where n is position of the bit. So the 0th bit, when set - meaning when it is not empty, represents 2^0 = 1. The 1st bit represents 2^1 = 2, the 2nd bit represnets 2^2 = 4, and so on. For example, the nunmber 5 in binary would be 101 which is equivalent to 1\*2^2 + 0\*2^1 + 1\*2^0. To get the binary representation of the negative integer, i.e. -5, we take the 2s complement of the positive binary representation.
 
@@ -17,13 +17,15 @@ To take the 2s complement, perform take the NOT of the word and then add 1. For 
 |3|0011|
 |4|0100|
 
-Operators that act directly on bits are called **bitwise operators**. The are (in python):
+Operators that act directly on bits are called **bitwise operators**. All bitwise operators are binary operators, meaning they take two inputs and return a single output, except for the NOT operator, which is unary. They are as follows:
 
 |Name|Symbol|
 |---|---|
 |AND|&|
 |OR|\||
 |NOT|~|
-|XOR|You must construct this since python doesn't implement this by default|
+|XOR|^|
 |RIGHT SHIFT|>>|
 |LEFT SHIFT|<<|
+
+Note that when counting bits, I count from right to left starting from 0. This convention is also used when clearing/setting the first/last n bits.
